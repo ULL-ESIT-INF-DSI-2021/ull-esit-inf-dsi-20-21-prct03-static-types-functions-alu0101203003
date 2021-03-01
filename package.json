@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-alu0101203003#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.16.0",
+    "@typescript-eslint/parser": "^4.16.0",
+    "eslint": "^7.21.0",
+    "eslint-config-google": "^0.14.0",
     "tsc-watch": "^4.2.9"
   }
 }
