@@ -1,6 +1,6 @@
 function ipsInRange(ip2 :string, ip1 :string){
-    var ip1_array = ip1.split(".");
-    var ip2_array = ip2.split(".");
+    var ip1_array :string[] = ip1.split(".");
+    var ip2_array :string[] = ip2.split(".");
 
     var ips_totales :number = 0;
     var ips_cogidas :number = 0;
