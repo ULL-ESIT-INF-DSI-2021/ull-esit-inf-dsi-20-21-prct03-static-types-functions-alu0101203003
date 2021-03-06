@@ -1,4 +1,4 @@
-const onePunch = (s :string) => s==''? ('Broken!'):(s.split(" ").sort().join(" ").replace(/a|e/g,""));
+const onePunch = (s :string) => s ==''? ('Broken!'):(s.split(" ").sort().join(" ").replace(/a|e/g,""));
 
 console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'))           //=>‘Brd Hirbrush Jns Knuckldustr Snd’
 console.log(onePunch('Sock Beard Vest Lady Sage'))                          //=>’Brd Ldy Sg Sock Vst’
