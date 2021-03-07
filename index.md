@@ -40,19 +40,15 @@ Para probar el funcionamiento de los ejercicios cambiaremos la propiedad start d
 
 ### 2. Ejercicios
 
-Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salida:
+Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salida. Se mostrará una versión reducida de los enunciados de los ejercicios (para verlos al completo con aclaraciones y pistas, consultar la [guía de la práctica](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/)
 
 #### 1.1 Ejercicio 1
 
-<span style="color:blue">some *blue* Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda. Tenga en cuenta que un año bisiesto ocurre en el calendario gregoriano:
-
-    Cada año que es divisible por 4.
-        Excepto cada año que es divisible por 100.
-            Al menos que el año también sea divisible por 400.
-
-Por ejemplo, el año 1997 no es un año bisiesto, pero 1996 sí. Al igual que 1900 no es un año bisiesto pero el año 2000 sí.</span>.
+**Enunciado:**
+Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda.
 
 #### 1.2 Ejercicio 2
+**Enunciado:**
 
 #### 1.3 Ejercicio 3
 
