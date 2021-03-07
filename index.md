@@ -27,6 +27,8 @@ Si hemos seguido los pasos correctamente acabaremos con una estructura como la s
 
 En resumidas cuentas tendremos el directorio src donde se almacena el código fuente de cada ejercicio que realizaremos y el directorio dist contendrá el código resultante de compilarlos que será ejecutado. Además se encuentran todos los archivos de congiguración (para más detalle sobre el contenido de cada uno se recomienda consultar la [guía](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html).
 
+Crearemos tambien un fichero *.gitignore* y modificaremos el *.eslintcr.json* añadiéndole dos reglas que nos ignoren los errores propios de JavaScript ya que trabajaremos en TypeScript.
+
 #### 1.2 Metodolgía de trabajo
 
 La manera en la que trabajaremos será mediante el desarrollo de ejercicios en los que implementaremos funciones que nos permitan resolver los problemas planteados.
@@ -42,6 +44,13 @@ Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salid
 
 #### 1.1 Ejercicio 1
 
+<span style="color:blue">some *blue* Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda. Tenga en cuenta que un año bisiesto ocurre en el calendario gregoriano:
+
+    Cada año que es divisible por 4.
+        Excepto cada año que es divisible por 100.
+            Al menos que el año también sea divisible por 400.
+
+Por ejemplo, el año 1997 no es un año bisiesto, pero 1996 sí. Al igual que 1900 no es un año bisiesto pero el año 2000 sí.</span>.
 
 #### 1.2 Ejercicio 2
 
