@@ -26,3 +26,36 @@ Si hemos seguido los pasos correctamente acabaremos con una estructura como la s
 <img src="img/Captura1.JPG" alt=""/> 
 
 En resumidas cuentas tendremos el directorio src donde se almacena el código fuente de cada ejercicio que realizaremos y el directorio dist contendrá el código resultante de compilarlos que será ejecutado. Además se encuentran todos los archivos de congiguración (para más detalle sobre el contenido de cada uno se recomienda consultar la [guía](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html).
+
+#### 1.2 Metodolgía de trabajo
+
+La manera en la que trabajaremos será mediante el desarrollo de ejercicios en los que implementaremos funciones que nos permitan resolver los problemas planteados.
+
+Para probar el funcionamiento de los ejercicios cambiaremos la propiedad start del fichero package.json y ejecutaremos `npm start`:
+<img src="img/Captura2.JPG" alt=""/> 
+
+
+### 2. Ejercicios
+
+Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salida:
+
+#### 1.1 Ejercicio 1
+
+
+#### 1.2 Ejercicio 2
+
+#### 1.3 Ejercicio 3
+
+#### 1.4 Ejercicio 4
+
+#### 1.5 Ejercicio 5
+
+#### 1.6 Ejercicio 6
+
+#### 1.7 Ejercicio 7
+
+#### 1.8 Ejercicio 8
+
+#### 1.9 Ejercicio 9
+
+#### 1.10 Ejercicio 10
