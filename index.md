@@ -45,9 +45,11 @@ Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salid
 #### 1.1 Ejercicio 1
 
 **Enunciado:**
+
 Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda.
 
 #### 1.2 Ejercicio 2
+
 **Enunciado:**
 
 #### 1.3 Ejercicio 3
