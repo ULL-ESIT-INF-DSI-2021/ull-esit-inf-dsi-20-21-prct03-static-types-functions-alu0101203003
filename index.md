@@ -40,30 +40,78 @@ Para probar el funcionamiento de los ejercicios cambiaremos la propiedad start d
 
 ### 2. Ejercicios
 
-Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salida. Se mostrará una versión reducida de los enunciados de los ejercicios (para verlos al completo con aclaraciones y pistas, consultar la [guía de la práctica](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/)
+Paso a explicar la resolución de cada ejercicio y a adjuntar su código y salida. Se mostrará una versión simplificada de los enunciados de los ejercicios (para verlos al completo con aclaraciones y pistas, consultar la [guía de la práctica](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/)
 
 #### 1.1 Ejercicio 1
 
 **Enunciado:**
 
-Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda.
+Cree una función isLeapYear que devuelva si un año concreto es bisiesto o no. La función deberá recibir como parámetro el año a evaluar y devolverá verdadero o falso según corresponda.Tenga en cuenta que un año bisiesto ocurre en el calendario gregoriano:
+
+* Cada año que es divisible por 4.
+* Excepto cada año que es divisible por 100. 
+* Al menos que el año también sea divisible por 400.
+
+**Resolución:**
+
+Tal y como está planteado el problema, existe dos casos en los que un año es bisiesto:
+
+* Es divisible por 4 y no lo es por 100
+* Es divisible por 100 pero también lo es por 4 y 400
+
+Por lo tanto, si cumple una de las 2 condiciones devolverá true y si no false
+
+```ts
+function isLeapYear (year : number) {
+    if(((year%4 == 0) && (year%100 != 0)) || ((year%4 == 0) && (year%100 == 0)&&(year%400 == 0))) {
+       return true;
+    }else {
+        return false;
+    }
+
+}
+
+console.log(isLeapYear(1997)); //false
+console.log(isLeapYear(1996)); //true
+```
+
 
 #### 1.2 Ejercicio 2
 
 **Enunciado:**
 
+Codificar números decimales con factoriales es una forma de escribir números en un sistema base que depende de factoriales, en lugar de potencias.
+
 #### 1.3 Ejercicio 3
+
+**Enunciado:**
+
 
 #### 1.4 Ejercicio 4
 
+**Enunciado:**
+
+
 #### 1.5 Ejercicio 5
+
+**Enunciado:**
 
 #### 1.6 Ejercicio 6
 
+**Enunciado:**
+
 #### 1.7 Ejercicio 7
+
+**Enunciado:**
 
 #### 1.8 Ejercicio 8
 
+**Enunciado:**
+
 #### 1.9 Ejercicio 9
 
+**Enunciado:**
+
 #### 1.10 Ejercicio 10
+
+**Enunciado:**
