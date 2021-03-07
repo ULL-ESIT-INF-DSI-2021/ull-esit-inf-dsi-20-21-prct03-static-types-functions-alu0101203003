@@ -1,11 +1,11 @@
 function isValidISBN(s :string){
-s = s.split("-").join("");
-if (s.length != 10){
+s = s.split("-").join(""); //las que tengan guiones se les quita para manejarlas
+if (s.length != 10){ //si tiene menos de 10 digitos
     return false;
 }
 var valor = []
 for (var i :number = 0; i < 10; i++){
-    if (i!=9 && isNaN(parseInt(s[i])) || (i==9 && s[i]!='X' && isNaN(parseInt(s[i])))){
+    if (i!=9 && isNaN(parseInt(s[i])) || (i==9 && s[i]!='X' && isNaN(parseInt(s[i])))){ //si hay alguna letra que no sea la X del final
         return false;
     }
     if (s[i]=='X'){

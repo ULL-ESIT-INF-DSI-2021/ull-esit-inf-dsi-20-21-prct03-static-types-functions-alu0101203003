@@ -30,7 +30,6 @@ function pokemonDamage(tipo_at :string,tipo_df :string,at :number, df :number){
         default:
             break;
     }
-    console.log(efectividad)
     if (efectividad == 0){
         return ("Error: Tipo mal especificado")
     }
