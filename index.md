@@ -14,3 +14,12 @@ Al finalizar la práctica, habremos completado los siguientes objetivos:
 * Saber operar con digitos extraidos de una cadena de texto
 * Manejar y hacer uso de expresiones regulares como patron de búsqueda/reemplazo
 * Usar funciones anonimas para reducir el número de líneas de código de nuestro programa
+
+### 1. Creación y configuración del driectorio del proyecto.
+
+#### 1.1. Estructura inicial
+
+Con el fin de preparar una estructura adecuada para nuestro proyecto seguiremos la [Guía de creación de un proyecto inicial](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html).
+
+Si hemos seguido los pasos correctamente acabaremos con una estructura como la siguiente:
+<img src="img/Captura1.PNG" alt=""/>
