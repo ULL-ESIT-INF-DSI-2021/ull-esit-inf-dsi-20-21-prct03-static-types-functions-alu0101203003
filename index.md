@@ -31,7 +31,8 @@ En resumidas cuentas tendremos el directorio src donde se almacena el código fu
 
 La manera en la que trabajaremos será mediante el desarrollo de ejercicios en los que implementaremos funciones que nos permitan resolver los problemas planteados.
 
-Para probar el funcionamiento de los ejercicios cambiaremos la propiedad start del fichero package.json y ejecutaremos `npm start`:
+Para probar el funcionamiento de los ejercicios cambiaremos la propiedad start del fichero package.json y pondremos el nombre del ejercicio a probar. Ejecutaremos `npm start`:
+
 <img src="img/Captura2.JPG" alt=""/> 
 
 
