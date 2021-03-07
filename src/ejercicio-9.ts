@@ -21,6 +21,10 @@ function pokemonDamage(tipo_at :string,tipo_df :string,at :number, df :number){
             efectividad = 1.0;
             break;
         case tipo_at == tipo_df:
+        case tipo_at == "hierba" && tipo_df =="fuego":
+        case tipo_at == "fuego" && tipo_df =="agua":
+        case tipo_at == "agua" && tipo_df =="hierba":
+        case tipo_at == "hierba" && tipo_df =="fuego":
             efectividad = 0.5;
             break;
         default:
@@ -35,22 +39,29 @@ function pokemonDamage(tipo_at :string,tipo_df :string,at :number, df :number){
 
 var pokemon1 :pokemon = {
     tipo: "fuego",
-    ataque: 2100,
-    defensa: 3200
+    ataque: 120,
+    defensa: 30
 }
 
 var pokemon2 :pokemon = {
-    tipo: "hierba",
-    ataque: 2500,
-    defensa: 2900
+    tipo: "agua",
+    ataque: 50,
+    defensa: 100
 }
 
 var pokemon3 :pokemon = {
-    tipo: "electrico",
-    ataque: 1900,
-    defensa: 3000
+    tipo: "hierba",
+    ataque: 70,
+    defensa: 90
 }
 
-console.log("pokemon1 vs pokemon2: ",pokemonDamage(pokemon1.tipo,pokemon2.tipo,pokemon1.ataque,pokemon2.defensa));
-console.log("pokemon3 vs pokemon2: ",pokemonDamage(pokemon3.tipo,pokemon2.tipo,pokemon3.ataque,pokemon2.defensa));
-console.log("pokemon1 vs pokemon1: ",pokemonDamage(pokemon1.tipo,pokemon1.tipo,pokemon1.ataque,pokemon1.defensa));
+var pokemon4 :pokemon = {
+    tipo: "electrico",
+    ataque: 110,
+    defensa: 40
+}
+
+console.log("pokemon1 vs pokemon3: ",pokemonDamage(pokemon1.tipo,pokemon3.tipo,pokemon1.ataque,pokemon3.defensa));
+console.log("pokemon3 vs pokemon4: ",pokemonDamage(pokemon3.tipo,pokemon4.tipo,pokemon3.ataque,pokemon4.defensa));
+console.log("pokemon2 vs pokemon2: ",pokemonDamage(pokemon2.tipo,pokemon2.tipo,pokemon2.ataque,pokemon2.defensa));
+console.log("pokemon4 vs pokemon2: ",pokemonDamage(pokemon4.tipo,pokemon2.tipo,pokemon4.ataque,pokemon2.defensa));
