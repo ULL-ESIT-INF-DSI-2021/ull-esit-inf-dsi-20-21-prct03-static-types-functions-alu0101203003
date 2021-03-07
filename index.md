@@ -74,7 +74,7 @@ function isLeapYear (year : number) {
 console.log(isLeapYear(1997)); //false
 console.log(isLeapYear(1996)); //true
 ```
-
+<img src="img/1.JPG" alt=""/> 
 
 #### 1.2 Ejercicio 2
 
@@ -149,6 +149,7 @@ return num; //devuleve el numero sumado
 console.log(decimalToFactorial(463));     //34101
 console.log(factorialToDecimal("34101")); //463
 ```
+<img src="img/2.JPG" alt=""/> 
 
 #### 1.3 Ejercicio 3
 
@@ -202,7 +203,7 @@ console.log(isValid("4code10helloworld")); // true
 console.log(isValid("4code10heloworld"));  // false
 console.log(isValid(""));                  // true
 ```
-
+<img src="img/3.JPG" alt=""/> 
 
 #### 1.4 Ejercicio 4
 
@@ -252,8 +253,7 @@ function fromCamelToSnakeCase (s :string) {
 console.log(fromSnakeToCamelCase("hola_mundo"));  //holaMundo
 console.log(fromCamelToSnakeCase("holaMundo"));   //hola_mundo
 ```
-
-
+<img src="img/4.JPG" alt=""/> 
 
 #### 1.5 Ejercicio 5
 
@@ -292,6 +292,7 @@ console.log(onePunch('Snot Snow Soda Tank Beard'))                          //=>
 console.log(onePunch(''))                                                   //=>’Broken!’
 
 ```
+<img src="img/5.JPG" alt=""/> 
 
 #### 1.6 Ejercicio 6
 
@@ -361,6 +362,7 @@ console.log(isValidISBN('36571'))          //false
 console.log(isValidISBN('0-100-00000-0'))  //false
 console.log(isValidISBN('0-000-00000-0'))  //true
 ```
+<img src="img/6.JPG" alt=""/> 
 
 #### 1.7 Ejercicio 7
 
@@ -408,6 +410,7 @@ console.log(siguienteMayor('9'));    // -> -1
 console.log(siguienteMayor('111'));  // -> -1
 console.log(siguienteMayor('531'));  // -> -1
 ```
+<img src="img/7.JPG" alt=""/> 
 
 #### 1.8 Ejercicio 8
 
@@ -447,6 +450,7 @@ console.log(ipsInRange('10.0.0.0','10.0.0.50'));  //50
 console.log(ipsInRange('10.0.0.0','10.0.1.0'));   //256
 console.log(ipsInRange('20.0.0.10','20.0.1.0'));  //246
 ```
+<img src="img/8.JPG" alt=""/> 
 
 #### 1.9 Ejercicio 9
 
@@ -556,7 +560,7 @@ console.log("pokemon3 vs pokemon4: ",pokemonDamage(pokemon3.tipo,pokemon4.tipo,p
 console.log("pokemon2 vs pokemon2: ",pokemonDamage(pokemon2.tipo,pokemon2.tipo,pokemon2.ataque,pokemon2.defensa)); //12.5
 console.log("pokemon4 vs pokemon2: ",pokemonDamage(pokemon4.tipo,pokemon2.tipo,pokemon4.ataque,pokemon2.defensa)); //110
 ```
-
+<img src="img/9.JPG" alt=""/> 
 
 #### 1.10 Ejercicio 10
 
@@ -627,6 +631,7 @@ console.log(isValidUsername("u__Hel$12"));   //true
 console.log(isValidUsername("u__Hello$12")); //false
 console.log(isValidUsername("uhello122"));   //false
 ```
+<img src="img/10.JPG" alt=""/> 
 
 ### Conclusiones
 
