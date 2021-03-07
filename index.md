@@ -274,49 +274,363 @@ Se espera un comportamiento como el siguiente:
 
 **Resolución:**
 
+Para poder implementar la función en una línea necesitaremos usar una función aniónima y un condicional ternario.
 
+* Si la cadena es la vacía se transforma en 'Broken', si no:
+* Se divide por espacios
+* Se reordena (alfabeticamente)
+* Se vuelve a unir por espacios
+* Se reemplazan las *a* y las *e* por *vacío* para eliminarlas
+
+```ts
+const onePunch = (s :string) => s ==''? ('Broken!'):(s.split(" ").sort().join(" ").replace(/a|e/g,""));
+
+console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'))           //=>‘Brd Hirbrush Jns Knuckldustr Snd’
+console.log(onePunch('Sock Beard Vest Lady Sage'))                          //=>’Brd Ldy Sg Sock Vst’
+console.log(onePunch('Beard Sack Gun Parachute Face-Kicking-Shoes'))        //=>’Brd Fc-Kicking-Shos Gun Prchut Sck’
+console.log(onePunch('Snot Snow Soda Tank Beard'))                          //=>’Brd Snot Snow Sod Tnk’
+console.log(onePunch(''))                                                   //=>’Broken!’
+
+```
 
 #### 1.6 Ejercicio 6
 
 **Enunciado:**
 
+El Proceso de verificación ISBN-10 se usa para validar la identificación de números. Normalmente contienen guiones y siguen un patrón como: 3-598-21508-8.
+
+El formato ISBN-10 está compuesto por 9 dígitos (0-9) y un caracter de comprobación que puede ser un dígito (0-9) o una X. En caso de que el caracter de comprobación sea una X, se representa con el valor ‘10. Estos valores su pueden comunicar con o sin guiones, y se puede comprobar su validez con la siguiente fórmula:
+
+(x1 * 10 + x2 * 9 + x3 * 8 + x4 * 7 + x5 * 6 + x6 * 5 + x7 * 4 + x8 * 3 + x9 * 2 + x10 * 1) mod 11 == 0
+
+Si el resultado es 0, entonces el código ISBN-10 es válido. En cualquier otro caso el código se considera no válido.
+
+El código ISBN-10 3-598-21508-8 da como resultado 0 y por lo tanto es un código ISBN válido:
+
+(3 * 10 + 5 * 9 + 9 * 8 + 8 * 7 + 2 * 6 + 1 * 5 + 5 * 4 + 0 * 3 + 8 * 2 + 8 * 1) mod 11 == 0
+
+Para resolver este ejercicio, defina una función isValidISBN que compruebe la validez de un código ISBN-10. La función recibirá como parámetro una cadena de caracteres compuesta por un posible código ISBN-10 separado o no por guiones. Como resultado, la función devolverá verdadero o falso según corresponda con la validez del código ISBN-10. Tenga en cuenta que la cadena de entrada a la función puede ser del tipo “3-598-21508-8” o “3598215088”. Para ambos casos el valor devuelto debe ser el mismo.
 
 **Resolución:**
 
+Para comprobar la validez de un código se realizan primero dos comprobaciones básicas:
 
+* Que no tenga más ni menos de 10 dígitos (`s.length != 10`)
+* Que no haya ninguna letra a parte de la X del final (`i!=9 && isNaN(parseInt(s[i])) || (i==9 && s[i]!='X' && isNaN(parseInt(s[i])))`)
+
+Después haremos la comprobación final con la fórmula:
+
+* Ya que la formula usa un conteo regresivo de 9 a 0 y lo multiplica por cada valor, invertiremos el array que contiene los valores para poder hacer toda la operación en un bucle de manera más sencilla.
+* Hacemos un sumatorio de todas estas multiplicaciones y le hacemos módulo 11
+* Si el resultado es 0, será valido
+
+```ts
+function isValidISBN(s :string){
+s = s.split("-").join(""); //las que tengan guiones se les quita para manejarlas
+if (s.length != 10){ //si tiene menos de 10 digitos
+    return false;
+}
+var valor = []
+for (var i :number = 0; i < 10; i++){
+    if (i!=9 && isNaN(parseInt(s[i])) || (i==9 && s[i]!='X' && isNaN(parseInt(s[i])))){ //si hay alguna letra que no sea la X del final
+        return false;
+    }
+    if (s[i]=='X'){
+        valor[i] = 10;
+    } else {
+        valor[i] = parseInt(s[i]);
+    }
+}
+valor = valor.reverse(); // se invierte el array para facilitar el sumatorio
+var sumatorio :number = 0;
+for (var i :number = 10; i >= 1; i--){
+    sumatorio = sumatorio + (valor[i-1]*i);
+}
+if (sumatorio%11 == 0){
+    return true;
+} else {
+    return false;
+}
+
+}
+
+console.log(isValidISBN('3-598-21507-X'))  //true
+console.log(isValidISBN('359821507X'))     //true
+console.log(isValidISBN('3-598-21508-8'))  //true
+console.log(isValidISBN('36571'))          //false
+console.log(isValidISBN('0-100-00000-0'))  //false
+console.log(isValidISBN('0-000-00000-0'))  //true
+```
 
 #### 1.7 Ejercicio 7
 
 **Enunciado:**
 
+Defina una función que reciba como parámetro un entero positivo y devuelva el siguiente número mayor que pueda ser formado al reposicionar sus dígitos. En caso de no poder reposicionar los dígitos para conseguir un número mayor, la función debe devolver un valor -1.
 
 **Resolución:**
 
+Para recombinar el numero: 
+* Convertimos la entrada a un array para poder manipular sus digitos
+* Partimos de que la ultima posicion es la mayor
+* Vamos comparando cada posición con la siguiente de atrás hacia alante. Si la posicion es mayor se intercambia y se devuelve el vector intercambiado, si no:
+* Seguimos buscando hasta el principio del vector y devolvemos -1 si no se da el caso
 
+(Si el número es de un solo dígito tambien devolvemos -1)
+
+```ts
+
+function siguienteMayor (s :string){
+    if (s.length == 1){
+        return -1
+    }
+    var s_array :string[] = s.split("");
+    var mayor :number = parseInt(s_array[s_array.length-1]);
+    var i :number = s_array.length-1;
+    while (i >= 0){
+        var pos :number = parseInt(s_array[i]);
+        if (mayor > pos){
+            s_array[i] = mayor.toString();
+            s_array[i+1] = pos.toString();
+            return s_array.join("");
+        } else {
+            mayor = pos;
+            i--
+        }
+    }
+    return -1
+}
+
+console.log(siguienteMayor('12'));   // -> 21
+console.log(siguienteMayor('513'));  // -> 531
+console.log(siguienteMayor('2017')); // -> 2071
+console.log(siguienteMayor('9'));    // -> -1
+console.log(siguienteMayor('111'));  // -> -1
+console.log(siguienteMayor('531'));  // -> -1
+```
 
 #### 1.8 Ejercicio 8
 
 **Enunciado:**
 
+A partir de una cadena de texto que representa una dirección IPv4, cree una función que reciba como parámetro dicha cadena y devuelva un valor numérico que represente el número de IPs disponibles en ese rango (incluyendo la primera y excluyendo la última).
 
 **Resolución:**
 
+El numero de ips de una dirección se obtiene sumando cada digito multiplicado por la posición en la que está (de atrás hacia alante) elevado a 256 (cada punto representa 256 del punto anterior).
 
+* Haremos una array para cada dirección
+* Los invertiremos para poder hacer el sumatorio de atrás hacia alante
+* Haremos el sumatorio para cada dirección
+* Y las restaremos para obtener el rango
+
+```ts
+function ipsInRange(ip2 :string, ip1 :string){
+    var ip1_array :string[] = ip1.split(".");
+    var ip2_array :string[] = ip2.split(".");
+
+    var ips_totales :number = 0;
+    var ips_cogidas :number = 0;
+
+    ip1_array = ip1_array.reverse();
+    ip2_array = ip2_array.reverse();
+
+    for (var i :number = 0; i < 4; i++){
+        ips_totales = ips_totales + parseInt(ip1_array[i])*Math.pow(256,i);
+        ips_cogidas = ips_cogidas + parseInt(ip2_array[i])*Math.pow(256,i);
+    }
+
+    return ips_totales - ips_cogidas;    
+}
+
+console.log(ipsInRange('10.0.0.0','10.0.0.50'));  //50
+console.log(ipsInRange('10.0.0.0','10.0.1.0'));   //256
+console.log(ipsInRange('20.0.0.10','20.0.1.0'));  //246
+```
 
 #### 1.9 Ejercicio 9
 
 **Enunciado:**
 
+¡¡Estás en medio de un combate Pokemon!! Tu tarea es calcular el daño que un movimiento concreto causará a partir de la siguiente fórmula:
+
+daño = 50 * (ataque / defensa) * efectividad
+
+Donde ataque es tu poder de ataque, defensa es la capacidad de defensa del oponente y la efectividad del ataque se basa en lo siguiente.
+
+Los ataques pueden ser super efectivos, neutrales o no muy efectivos. Esto depende del tipo de Pokemons que estén combatiendo.
+
+* Super efectivo = x2 de daño
+* Neutral = x1 de daño
+* No muy efectivo = x0.5 de daño
+
+Considerando únicamente Pokemons de tipo fuego, agua, hierba y eléctrico, la efectividad de cada emparejamiento es la siguiente:
+
+
+* fuego > hierba
+*  fuego < agua
+* fuego = eléctrico
+* agua < hierba
+* agua < eléctrico
+* hierba = eléctrico
+
+Ten en cuenta que los ataques entre Pokemons de mismo tipo no serán muy efectivos. Además, las relaciones son simétricas. Es decir, si un tipo A es super efectivo sobre un tipo B, entonces B será poco efectivo contra A.
+
+Defina una función que reciba como parámetro el tipo de Pokemon que tiene, el tipo de Pokemon de su oponente, su capacidad de ataque y la capacidad de ataque de su oponente. La función devolverá como resultado el daño causado.
 
 **Resolución:**
 
+Para simplificar el paso de argunmentos a la función crearemos objetos de tipo pokemon que contendrán el tipo, el ataque y la defensa de cada pokemon:
+
+```ts
+type pokemon = {
+    tipo: string, 
+    ataque: number,
+    defensa: number
+};
+```
+
+Contemplaremos todas las posibles combinaciones de tipos y cambiaremos la efectividad en función de la combinación. Usaremos este valor de efectividad para la fórmula del daño (`daño = 50 * (ataque / defensa) * efectividad`)
+
+```ts
+function pokemonDamage(tipo_at :string,tipo_df :string,at :number, df :number){
+    var efectividad :number = 0.0;
+
+    switch (true) {
+        case tipo_at == "fuego" && tipo_df =="hierba":
+        case tipo_at == "agua" && tipo_df =="fuego":
+        case tipo_at == "hierba" && tipo_df =="agua":
+        case tipo_at == "electrico" && tipo_df =="agua":
+            efectividad = 2.0;
+            break;
+        case tipo_at == "fuego" && tipo_df =="electrico":
+        case tipo_at == "electrico" && tipo_df =="fuego":
+        case tipo_at == "hierba" && tipo_df =="electrico":
+        case tipo_at == "electrico" && tipo_df =="hierba":
+            efectividad = 1.0;
+            break;
+        case tipo_at == tipo_df:
+        case tipo_at == "hierba" && tipo_df =="fuego":
+        case tipo_at == "fuego" && tipo_df =="agua":
+        case tipo_at == "agua" && tipo_df =="hierba":
+        case tipo_at == "hierba" && tipo_df =="fuego":
+            efectividad = 0.5;
+            break;
+        default:
+            break;
+    }
+    console.log(efectividad)
+    if (efectividad == 0){
+        return ("Error: Tipo mal especificado")
+    }
+    var damage = 50 * (at/df) * efectividad;
+    return damage;
+}
+
+var pokemon1 :pokemon = {
+    tipo: "fuego",
+    ataque: 120,
+    defensa: 30
+}
+
+var pokemon2 :pokemon = {
+    tipo: "agua",
+    ataque: 50,
+    defensa: 100
+}
+
+var pokemon3 :pokemon = {
+    tipo: "hierba",
+    ataque: 70,
+    defensa: 90
+}
+
+var pokemon4 :pokemon = {
+    tipo: "electrico",
+    ataque: 110,
+    defensa: 40
+}
+
+console.log("pokemon1 vs pokemon3: ",pokemonDamage(pokemon1.tipo,pokemon3.tipo,pokemon1.ataque,pokemon3.defensa)); //133.333
+console.log("pokemon3 vs pokemon4: ",pokemonDamage(pokemon3.tipo,pokemon4.tipo,pokemon3.ataque,pokemon4.defensa)); //87.5
+console.log("pokemon2 vs pokemon2: ",pokemonDamage(pokemon2.tipo,pokemon2.tipo,pokemon2.ataque,pokemon2.defensa)); //12.5
+console.log("pokemon4 vs pokemon2: ",pokemonDamage(pokemon4.tipo,pokemon2.tipo,pokemon4.ataque,pokemon2.defensa)); //110
+```
 
 
 #### 1.10 Ejercicio 10
 
 **Enunciado:**
 
+Cree una función isValidUsername que compruebe la validez de un nombre de usuario. La función recibirá como parámetro una cadena con un nombre de usuario y devolverá verdadero o falso según las siguientes condiciones.
+
+* El nombre de usuario tiene que tener al menos 4 caracteres y no más de 30.
+* El nombre de usuario no puede empezar ni terminar con un guión bajo.
+* El nombre de usuario tiene que contener al menos una letra mayúscula, una letra minúscula, un número y algún símbolo especial ($,-,_).
+* No se permite la repetición de un mismo tipo de caracter más de dos veces seguidas.
+
+Por ejemplo, el nombre de usuario "u__hello$122__" no sería válida ya que aparecen cinco letras seguidas y tres números seguidos. Además, termina por _ y no contiene ninguna letra mayúscula.
 
 **Resolución:**
 
+Para comprobar la validez seguiremos una serie de pasos:
+
+Haremos las comprobaciones básicas:
+* Que la longitud esté entre 4 y 30
+* Que no empiece ni acabe por _
+
+Después nos ayudaremos de expresiones regulares que representarán patrones de búsqueda para realizar las comprobaciones que tienen que ver con el tipo de caracter:
+* Que haya uno de cada tipo
+* Que no haya tres seguidos del mismo tipo
+
+Para ello agruparemos los tipos en un array y lo recorreremos para la string asegurándonos de que se encuentre cada uno (haremos lo mismo para los que se repite 3 veces pero comprobaremos que NO se encuentra (`search = -1`))
+
+```ts
+
+function isValidUsername (s :string){
+    if (s.length < 4 || s.length > 30){
+        return false;
+    }
+    if (s[0]=="_" || s[s.length-1]=="_"){
+        return false;
+    }
+
+    var mayus :RegExp = /[A-Z]/g;
+    var minus :RegExp = /[a-z]/g;
+    var especial : RegExp = /[$_-]/g;
+    var tipos :RegExp[] = [mayus,minus,especial];
+
+    var mayus_triple :RegExp = /[A-Z][A-Z][A-Z]/g;
+    var minus_triple :RegExp = /[a-z][a-z][a-z]/g;
+    var especial_triple :RegExp = /[$_-][$_-][$_-]/g;
+    var triple :RegExp[] = [mayus_triple,minus_triple,especial_triple];
+
+    for (var i :number = 0; i < tipos.length; i++){
+        var una_de_cada = s.match(tipos[i]);
+        if (una_de_cada == null){
+            return false;
+        }
+
+    }
+    for (var i :number = 0; i < triple.length; i++){
+        var tres_mismo_tipo = s.search(triple[i]);
+        if (tres_mismo_tipo != -1){
+            return false
+        }
+
+    }
+    return true;
+
+}
+
+console.log(isValidUsername("u__Hel$12"));   //true
+console.log(isValidUsername("u__Hello$12")); //false
+console.log(isValidUsername("uhello122"));   //false
+```
+
+### Conclusiones
+
+La realización de los ejercicios me acabó resultando mucho más complicada de lo que parecía a simple vista. Tuve que dedicar bastante tiempo a pensar y trabajar cada ejercicio (cosa que me sirvió para darme cuenta a grosso modo de mis debilidades y fortalezas en typescript). Esta experiencia me forzó a aprender a usar muchas herramientas que no conocía para resolver problemas en programación (sobretodo las expresiones regurlares).
+
+### Bibliografía
 
