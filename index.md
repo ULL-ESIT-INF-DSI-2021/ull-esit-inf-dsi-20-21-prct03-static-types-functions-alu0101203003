@@ -23,7 +23,7 @@ Con el fin de preparar una estructura adecuada para nuestro proyecto seguiremos 
 
 Si hemos seguido los pasos correctamente acabaremos con una estructura como la siguiente:
 
-<img src="img/Captura1.JPG" alt=""/> 
+<img src="img/Captura1a.JPG" alt="" height="300"/> <img src="img/Captura1b.JPG" alt="" height="300"/> <img src="img/Captura1c.JPG" alt="" height="300"/>
 
 En resumidas cuentas tendremos el directorio src donde se almacena el código fuente de cada ejercicio que realizaremos y el directorio dist contendrá el código resultante de compilarlos que será ejecutado. Además se encuentran todos los archivos de congiguración (para más detalle sobre el contenido de cada uno se recomienda consultar la [guía](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html).
 
