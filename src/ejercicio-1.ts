@@ -8,12 +8,5 @@ function isLeapYear (year : number) {
 
 }
 
-var result :string = "";
-var check :boolean = isLeapYear(100);
-if (check){
-    result = "es bisiesto";
-} else {
-    result = "no es bisiesto";
-}
-
-console.log(result);
+console.log(isLeapYear(1997)); //false
+console.log(isLeapYear(1996)); //true

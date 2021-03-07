@@ -1,7 +1,10 @@
-function isValid (cadena :string) {
-    for(var i :number = 0; i < cadena.length; i++){
+function isValid (s :string) {
+    if (s == ""){  //si es la cadena vacía
+        return true;
+    }
+    for(var i :number = 0; i < s.length; i++){
         var cont = 0;
-        var bloque :string = cadena.slice(i,cadena.length);
+        var bloque :string = s.slice(i,s.length);
         var bloque_sz :number = parseInt(bloque);
         if (isNaN(bloque_sz)){
             return false;
@@ -9,8 +12,8 @@ function isValid (cadena :string) {
         var digito :string = bloque_sz.toString();
         bloque_sz = bloque_sz + digito.length;
         for(var j :number = i+digito.length; j < i + bloque_sz; j++){
-            var pos :number = parseInt(cadena[j]);
-            if (isNaN(pos) && j < cadena.length){ // se cuentan las letras
+            var pos :number = parseInt(s[j]);
+            if (isNaN(pos) && j < s.length){ // se cuentan las letras
                 cont++;
             }
         }
@@ -22,5 +25,7 @@ function isValid (cadena :string) {
     return true;
 }
 
-console.log(isValid("3hey5hello2hi"));
-console.log(isValid("4code10helloworld"));
+console.log(isValid("3hey5hello2hi"));     // true
+console.log(isValid("4code10helloworld")); // true
+console.log(isValid("4code10heloworld"));  // false
+console.log(isValid(""));                  // true

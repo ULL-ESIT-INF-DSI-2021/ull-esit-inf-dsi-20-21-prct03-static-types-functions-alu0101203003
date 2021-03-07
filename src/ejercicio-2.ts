@@ -45,6 +45,5 @@ function factorial (n :number) {
 	return n * factorial (n-1); 
 }
 
-console.log(decimalToFactorial(463));
-
-console.log(factorialToDecimal("34101"));
+console.log(decimalToFactorial(463));     //34101
+console.log(factorialToDecimal("34101")); //463

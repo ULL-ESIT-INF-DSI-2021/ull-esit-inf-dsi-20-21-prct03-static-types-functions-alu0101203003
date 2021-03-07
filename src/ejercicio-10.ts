@@ -34,6 +34,6 @@ function isValidUsername (s :string){
 
 }
 
-console.log(isValidUsername("u__Hel$12"));
-console.log(isValidUsername("u__Hello$12"));
-console.log(isValidUsername("uhello122"));
+console.log(isValidUsername("u__Hel$12"));   //true
+console.log(isValidUsername("u__Hello$12")); //false
+console.log(isValidUsername("uhello122"));   //false

@@ -27,7 +27,9 @@ if (sumatorio%11 == 0){
 
 }
 
-console.log(isValidISBN('3-598-21507-X'))
-console.log(isValidISBN('3-598-21508-8'))
-console.log(isValidISBN('0-100-00000-0'))
-console.log(isValidISBN('0-000-00000-0'))
+console.log(isValidISBN('3-598-21507-X'))  //true
+console.log(isValidISBN('359821507X'))     //true
+console.log(isValidISBN('3-598-21508-8'))  //true
+console.log(isValidISBN('36571'))          //false
+console.log(isValidISBN('0-100-00000-0'))  //false
+console.log(isValidISBN('0-000-00000-0'))  //true

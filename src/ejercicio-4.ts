@@ -14,5 +14,5 @@ function fromCamelToSnakeCase (s :string) {
     return result;
 }
 
-console.log(fromSnakeToCamelCase("hola_mundo"));
-console.log(fromCamelToSnakeCase("holaMundo"));
+console.log(fromSnakeToCamelCase("hola_mundo"));  //holaMundo
+console.log(fromCamelToSnakeCase("holaMundo"));   //hola_mundo

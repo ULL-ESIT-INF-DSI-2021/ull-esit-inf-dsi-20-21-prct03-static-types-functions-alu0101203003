@@ -30,6 +30,7 @@ function pokemonDamage(tipo_at :string,tipo_df :string,at :number, df :number){
         default:
             break;
     }
+    console.log(efectividad)
     if (efectividad == 0){
         return ("Error: Tipo mal especificado")
     }
@@ -61,7 +62,7 @@ var pokemon4 :pokemon = {
     defensa: 40
 }
 
-console.log("pokemon1 vs pokemon3: ",pokemonDamage(pokemon1.tipo,pokemon3.tipo,pokemon1.ataque,pokemon3.defensa));
-console.log("pokemon3 vs pokemon4: ",pokemonDamage(pokemon3.tipo,pokemon4.tipo,pokemon3.ataque,pokemon4.defensa));
-console.log("pokemon2 vs pokemon2: ",pokemonDamage(pokemon2.tipo,pokemon2.tipo,pokemon2.ataque,pokemon2.defensa));
-console.log("pokemon4 vs pokemon2: ",pokemonDamage(pokemon4.tipo,pokemon2.tipo,pokemon4.ataque,pokemon2.defensa));
+console.log("pokemon1 vs pokemon3: ",pokemonDamage(pokemon1.tipo,pokemon3.tipo,pokemon1.ataque,pokemon3.defensa)); //133.333
+console.log("pokemon3 vs pokemon4: ",pokemonDamage(pokemon3.tipo,pokemon4.tipo,pokemon3.ataque,pokemon4.defensa)); //87.5
+console.log("pokemon2 vs pokemon2: ",pokemonDamage(pokemon2.tipo,pokemon2.tipo,pokemon2.ataque,pokemon2.defensa)); //12.5
+console.log("pokemon4 vs pokemon2: ",pokemonDamage(pokemon4.tipo,pokemon2.tipo,pokemon4.ataque,pokemon2.defensa)); //110
