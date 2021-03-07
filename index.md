@@ -22,4 +22,5 @@ Al finalizar la práctica, habremos completado los siguientes objetivos:
 Con el fin de preparar una estructura adecuada para nuestro proyecto seguiremos la [Guía de creación de un proyecto inicial](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html).
 
 Si hemos seguido los pasos correctamente acabaremos con una estructura como la siguiente:
+
 <img src="img/Captura1.JPG" alt=""/>
