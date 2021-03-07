@@ -266,11 +266,11 @@ Como sus puñetazos, Chuck NUNCA necesita más de una línea de código. La tare
 Chuck espera como resultado una cadena de caracteres con sus cosas favoritas separadas, ordenadas, unidas de nuevo y, además, que se eliminen todas las apariciones de las letras e y a. Si alguien se atreve a retar a Chuck Norris con una cadena vacía la función devuelve “Broken!”.
 
 Se espera un comportamiento como el siguiente:
-    onePunch(‘Beard Jeans Hairbrush Knuckleduster Sand’) => ‘Brd Hirbrush Jns Knuckldustr Snd’
-    onePunch(‘Sock Beard Vest Lady Sage’) =>’Brd Ldy Sg Sock Vst’
-    onePunch(‘Beard Sack Gun Parachute Face-Kicking-Shoes’) =>’Brd Fc-Kicking-Shos Gun Prchut Sck’
-    onePunch(‘Snot Snow Soda Tank Beard’) =>’Brd Snot Snow Sod Tnk’
-    onePunch(‘’) =>’Broken!’
+* onePunch(‘Beard Jeans Hairbrush Knuckleduster Sand’) => ‘Brd Hirbrush Jns Knuckldustr Snd’
+* onePunch(‘Sock Beard Vest Lady Sage’) =>’Brd Ldy Sg Sock Vst’
+* onePunch(‘Beard Sack Gun Parachute Face-Kicking-Shoes’) =>’Brd Fc-Kicking-Shos Gun Prchut Sck’
+* onePunch(‘Snot Snow Soda Tank Beard’) =>’Brd Snot Snow Sod Tnk’
+* onePunch(‘’) =>’Broken!’
 
 **Resolución:**
 
