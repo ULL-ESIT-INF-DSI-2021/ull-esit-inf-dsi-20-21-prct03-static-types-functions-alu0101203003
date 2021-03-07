@@ -634,3 +634,13 @@ La realización de los ejercicios me acabó resultando mucho más complicada de 
 
 ### Bibliografía
 
+A continuación se muestra una serie de recursos que han sido de gran utilidad para la realización de la práctica y de este informe:
+
+
+Recurso| Dirección
+-------|----------
+Guía de la práctica | https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/
+Apuntes | https://ull-esit-inf-dsi-2021.github.io/typescript-theory/
+W3schools | https://www.w3schools.com/
+
+
